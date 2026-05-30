@@ -1,0 +1,7 @@
+{
+  "task_id": "task-create-msp-index",
+  "task_description": "Create a single index.html file for the Manulife Saving Protector (MSP) product page, following the layout/style of index (17).html but with MSP-specific content, including a fully functional premium calculator.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}

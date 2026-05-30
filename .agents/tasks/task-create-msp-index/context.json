@@ -1,0 +1,16 @@
+{
+  "project_type": "Static HTML product landing page for Manulife Saving Protector (MSP)",
+  "language": "HTML/CSS/JavaScript (single file)",
+  "build_system": "None - single self-contained HTML file",
+  "test_framework": "Manual browser testing / HTML validation",
+  "build_command": "N/A - static HTML",
+  "test_command": "N/A - validate with browser",
+  "verification_instructions": "Open index.html in browser, verify all tabs work, calculator produces correct values",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "No setup needed - single HTML file",
+  "environment_constraints": "INTEGRATIONS_ONLY network - no external packages, CDN, or fonts allowed. Everything must be self-contained in a single HTML file.",
+  "contribution_requirements": "Single index.html file in /projects/sandbox/Project-msp/",
+  "key_patterns": "Follow index (17).html template: green Manulife theme, sticky WA banner, tabbed content, card-based layout, responsive CSS, all inline in single file",
+  "relevant_files": ["/projects/sandbox/Project-msp/index (17).html"],
+  "directory_structure": "/projects/sandbox/Project-msp/ - flat directory with xlsx/pdf product files and the template HTML"
+}
