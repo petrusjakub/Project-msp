@@ -35,5 +35,5 @@
     "Verify calculator JavaScript contains correct rate constants (0.15, 0.175, 0.20 for IDR and 0.05, 0.08, 0.11 for USD)"
   ],
   "blocked_reason": null,
-  "findings": "File created successfully at 34506 bytes. All 6 tabs present and working. Calculator logic verified mathematically correct for all term/currency/mode combinations. HTML structure validates properly. Node.js has a proxy bootstrap issue in this sandbox but Python3 works fine for verification."
+  "findings": "File created successfully at 34506 bytes. All 6 tabs present and working. Calculator logic verified mathematically correct for all term/currency/mode combinations. HTML structure validates properly. Node.js has a proxy bootstrap issue in this sandbox but Python3 works fine for verification. Post-review fix applied: added USD benefit rate tables (5%/8%/11%) to Manfaat tab, USD comparison ratios (106%/117.6%/135.2%) to the Ringkasan Perbandingan section, USD disclaimer to Ilustrasi tab, XSS safety comment, and agent contact constants."
 }
