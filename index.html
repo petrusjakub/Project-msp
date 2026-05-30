@@ -164,12 +164,22 @@ body{padding-top:0}
 <p>MSP memberikan 3 manfaat utama:</p>
 
 <h3>1. Manfaat Pembayaran Tunai Tahunan</h3>
-<p>Anda akan menerima pembayaran tunai setiap tahun, mulai dari <strong>akhir tahun polis ke-5</strong> sampai <strong>akhir masa pertanggungan</strong>.</p>
+<p>Anda akan menerima pembayaran tunai setiap tahun, mulai dari <strong>akhir tahun polis ke-5</strong> sampai <strong>akhir masa pertanggungan</strong>. Persentase manfaat berbeda antara mata uang IDR dan USD.</p>
+
+<p><span class="badge badge-green">IDR</span> <strong>Tabel Manfaat Mata Uang Rupiah:</strong></p>
 <table>
 <tr><th>Masa Pertanggungan</th><th>% dari Premi Tahunan</th><th>Jumlah Tahun Terima</th><th>Total Pembayaran Tunai</th></tr>
 <tr><td>10 Tahun</td><td>15%</td><td>6 tahun (tahun 5-10)</td><td>90% dari Premi Tahunan</td></tr>
 <tr><td>15 Tahun</td><td>17,5%</td><td>11 tahun (tahun 5-15)</td><td>192,5% dari Premi Tahunan</td></tr>
 <tr><td>20 Tahun</td><td>20%</td><td>16 tahun (tahun 5-20)</td><td>320% dari Premi Tahunan</td></tr>
+</table>
+
+<p><span class="badge badge-blue">USD</span> <strong>Tabel Manfaat Mata Uang Dolar:</strong></p>
+<table>
+<tr><th>Masa Pertanggungan</th><th>% dari Premi Tahunan</th><th>Jumlah Tahun Terima</th><th>Total Pembayaran Tunai</th></tr>
+<tr><td>10 Tahun</td><td>5%</td><td>6 tahun (tahun 5-10)</td><td>30% dari Premi Tahunan</td></tr>
+<tr><td>15 Tahun</td><td>8%</td><td>11 tahun (tahun 5-15)</td><td>88% dari Premi Tahunan</td></tr>
+<tr><td>20 Tahun</td><td>11%</td><td>16 tahun (tahun 5-20)</td><td>176% dari Premi Tahunan</td></tr>
 </table>
 
 <h3>2. Manfaat Akhir Masa Pertanggungan</h3>
@@ -191,14 +201,23 @@ body{padding-top:0}
 <p>Jika meninggal karena <strong>kecelakaan</strong>: tambahan 10% dari premi tahunan per tahun polis yang telah berjalan.</p>
 
 <h3>Ringkasan Perbandingan Manfaat</h3>
+<p><span class="badge badge-green">IDR</span> <strong>Mata Uang Rupiah:</strong></p>
 <table>
 <tr><th>Masa Pertanggungan</th><th>Total Premi (5 thn)</th><th>Total Seluruh Manfaat</th><th>Rasio Manfaat</th></tr>
 <tr><td>10 Tahun</td><td>500%</td><td>590%</td><td>118%</td></tr>
 <tr><td>15 Tahun</td><td>500%</td><td>692,5%</td><td>138,5%</td></tr>
 <tr><td>20 Tahun</td><td>500%</td><td>820%</td><td>164%</td></tr>
 </table>
+
+<p><span class="badge badge-blue">USD</span> <strong>Mata Uang Dolar:</strong></p>
+<table>
+<tr><th>Masa Pertanggungan</th><th>Total Premi (5 thn)</th><th>Total Seluruh Manfaat</th><th>Rasio Manfaat</th></tr>
+<tr><td>10 Tahun</td><td>500%</td><td>530%</td><td>106%</td></tr>
+<tr><td>15 Tahun</td><td>500%</td><td>588%</td><td>117,6%</td></tr>
+<tr><td>20 Tahun</td><td>500%</td><td>676%</td><td>135,2%</td></tr>
+</table>
 <div class="highlight-box">
-<p><strong>Kesimpulan:</strong> Semakin panjang masa pertanggungan, semakin besar total manfaat yang Anda terima. Semua pilihan memberikan pengembalian lebih besar dari total premi yang dibayar!</p>
+<p><strong>Kesimpulan:</strong> Semakin panjang masa pertanggungan, semakin besar total manfaat yang Anda terima. Semua pilihan memberikan pengembalian lebih besar dari total premi yang dibayar! Perhatikan bahwa rasio manfaat IDR lebih tinggi dari USD karena tingkat pembayaran tunai tahunan yang berbeda.</p>
 </div>
 </div>
 </div>
@@ -250,6 +269,9 @@ body{padding-top:0}
 <div class="card">
 <h2>Ilustrasi Manfaat MSP</h2>
 <p>Contoh perhitungan dengan <strong>Premi Tahunan Rp 100.000.000</strong> (mata uang IDR):</p>
+<div class="highlight-box">
+<p><strong>Catatan:</strong> Ilustrasi di bawah menggunakan tingkat manfaat IDR (15%/17,5%/20%). Untuk mata uang USD, tingkat manfaat berbeda (5%/8%/11%). Gunakan tab <strong>Kalkulator</strong> untuk menghitung ilustrasi dalam mata uang USD.</p>
+</div>
 
 <h3>Ilustrasi 1: Masa Pertanggungan 10 Tahun</h3>
 <table>
@@ -457,6 +479,10 @@ questions.forEach(function(q){
 })();
 
 // ============ KALKULATOR MSP ============
+// Agent contact info - update here if agent assignment changes
+var AGENT_NAME = 'Petrus Jakub';
+var AGENT_PHONE = '087781896087';
+
 var modalFaktor = {
     IDR: { tahunan: 1.000000, semesteran: 0.525000, kuartalan: 0.275000, bulanan: 0.095000 },
     USD: { tahunan: 1.000000, semesteran: 0.512500, kuartalan: 0.265000, bulanan: 0.090000 }
@@ -488,6 +514,10 @@ function formatCurrency(num, currency) {
 }
 
 function parseNumber(str) {
+    // SAFETY: This function strips all non-digit characters, which prevents XSS
+    // when the output is later inserted via innerHTML through formatCurrency.
+    // If this sanitization is ever changed, the innerHTML usage in calculateMSP
+    // must be reviewed for injection risks.
     if (!str) return 0;
     return parseFloat(str.replace(/[^\d]/g, '')) || 0;
 }
